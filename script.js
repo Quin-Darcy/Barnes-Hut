@@ -7,7 +7,7 @@ let MAX_DEPTH = 6;
 let THRESHOLD = 0.5;
 // Bodys
 let BODYS = [];
-let R = 5;
+let R = 10;
 let M = 10;
 let G = 6.67 * Math.pow(10, -1);
 let COR = 0.5;
@@ -39,20 +39,14 @@ function draw() {
     for (let i = 0; i < BODYS.length; i++) {
         BODYS[i].show();
     }
-}
-
-function mouseClicked() {
-    let m = random(1, 30);
-    BODYS.push(new Body(mouseX, mouseY, R, M));
     if (BODYS.length > 0) {
         BODYS.push(BODYS[0]);
         BODYS.shift();
     }
 }
 
-function doubleClicked() {
-    BODYS = [];
-    noLoop();
+function mouseClicked() {
+    BODYS.push(new Body(mouseX, mouseY, R, M));
 }
 
 function keyPressed() {
